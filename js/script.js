@@ -1,5 +1,6 @@
 
-var mySwiper=new Swiper('.swiper-content',{
+$(function(){
+	var mySwiper=new Swiper('.swiper-content',{
 	direction: 'horizontal',
 	initialSlide: 0,
 	speed:600,
@@ -8,9 +9,27 @@ var mySwiper=new Swiper('.swiper-content',{
 	autoplayDisableOnInteraction : false,
 	nextButton: '.swiper-button-next',
     prevButton: '.swiper-button-prev',
-	
-	
 });
-$(function(){
-	
 })
+window.onload=function(){
+	if($(window).scrollTop()>=500&&$(window).scrollTop()<=700){		
+		if(!$("#logoBig_box").hasClass("rotateInUpRight")){
+			$("#logoBig_box").addClass("displayBox rotateInUpRight");
+		}			
+	}
+	$(window).scroll(function(){
+		if($(window).scrollTop()>=500&&$(window).scrollTop()<=700){		
+			if(!$("#logoBig_box").hasClass("rotateInUpRight")){
+				$("#logoBig_box").addClass("displayBox rotateInUpRight");
+			}			
+		}
+	});
+	
+}
+var alert_msg = function(msg) {
+    if ((typeof android !== "undefined" && android !== null) && (android.toast != null)) {
+      return android.toast(msg);
+    } else {
+      return alert(msg);
+    }
+};
